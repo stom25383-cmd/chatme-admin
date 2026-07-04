@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>ChatMe Control</title>
+    <link rel="stylesheet" href="css/admin-theme.css">
+</head>
+<body>
+
+    <!-- SCREEN: PIN LOCK -->
+    <section id="screen-pin" class="admin-screen active">
+        <div class="pin-wrap">
+            <div class="pin-title" id="pin-title">Enter Security PIN</div>
+            <div class="pin-dots" id="pin-dots"></div>
+            <div class="pin-error hidden" id="pin-error">Incorrect PIN</div>
+            <div class="pin-numpad" id="pin-numpad"></div>
+        </div>
+    </section>
+
+    <!-- SCREEN: DASHBOARD -->
+    <section id="screen-dashboard" class="admin-screen">
+        <header class="admin-header">
+            <div class="admin-title">ChatMe Control</div>
+            <div class="admin-readonly-row">
+                <span class="cm-text-caption">Read-Only Mode</span>
+                <input type="checkbox" id="toggle-readonly" checked>
+            </div>
+        </header>
+
+        <div class="admin-safeguards">
+            <button id="btn-global-freeze" class="admin-btn admin-btn-danger">Global Freeze</button>
+        </div>
+
+        <div id="admin-user-list" class="admin-user-list"></div>
+    </section>
+
+    <script src="cordova.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="js/device-id.js"></script>
+    <script src="js/pin-lock.js"></script>
+    <script src="js/alerts.js"></script>
+    <script src="js/governance.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

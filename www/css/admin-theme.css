@@ -1,0 +1,44 @@
+:root {
+    --cm-black: #000000;
+    --cm-bg-deep: #0a0a0c;
+    --cm-glass-bg: rgba(255,255,255,0.04);
+    --cm-glass-bg-strong: rgba(255,255,255,0.07);
+    --cm-glass-border: rgba(255,255,255,0.08);
+    --cm-text-primary: #ffffff;
+    --cm-text-muted: #7a7a82;
+    --cm-danger: #e5484d;
+    --cm-radius-md: 16px;
+    --cm-radius-pill: 999px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+html, body { height: 100%; background: var(--cm-bg-deep); color: var(--cm-text-primary); font-family: -apple-system, 'Segoe UI', Roboto, sans-serif; }
+
+.admin-screen { display: none; width: 100vw; height: 100vh; position: absolute; inset: 0; }
+.admin-screen.active { display: block; }
+.hidden { display: none !important; }
+.cm-text-caption { font-size: 12px; color: var(--cm-text-muted); }
+
+#screen-pin.active { display: flex; align-items: center; justify-content: center; }
+.pin-wrap { display: flex; flex-direction: column; align-items: center; gap: 24px; }
+.pin-title { font-size: 18px; font-weight: 600; }
+.pin-dots { display: flex; gap: 12px; }
+.pin-dot { width: 14px; height: 14px; border-radius: 50%; border: 1px solid var(--cm-glass-border); }
+.pin-dot.filled { background: #ffffff; }
+.pin-error { color: var(--cm-danger); font-size: 13px; }
+.pin-numpad { display: grid; grid-template-columns: repeat(3, 64px); gap: 16px; }
+.pin-key { width: 64px; height: 64px; border-radius: 50%; background: var(--cm-glass-bg); border: 1px solid var(--cm-glass-border); color: var(--cm-text-primary); font-size: 20px; }
+.pin-key:active { background: var(--cm-glass-bg-strong); }
+
+.admin-header { display: flex; justify-content: space-between; align-items: center; padding: 24px 20px 12px; }
+.admin-title { font-size: 18px; font-weight: 700; }
+.admin-readonly-row { display: flex; align-items: center; gap: 8px; }
+
+.admin-safeguards { padding: 0 20px 12px; display: flex; gap: 10px; }
+.admin-btn { padding: 10px 16px; border-radius: var(--cm-radius-pill); background: var(--cm-glass-bg-strong); border: 1px solid var(--cm-glass-border); color: var(--cm-text-primary); font-size: 13px; }
+.admin-btn-danger { background: rgba(229,72,77,0.12); color: var(--cm-danger); border-color: rgba(229,72,77,0.3); }
+
+.admin-user-list { padding: 0 20px; overflow-y: auto; height: calc(100vh - 160px); display: flex; flex-direction: column; gap: 10px; }
+.admin-user-card { display: flex; justify-content: space-between; align-items: center; padding: 14px 16px; border-radius: var(--cm-radius-md); background: var(--cm-glass-bg); border: 1px solid var(--cm-glass-border); }
+.admin-user-name { font-size: 15px; font-weight: 600; }
+.admin-user-pid { font-size: 12px; color: var(--cm-text-muted); }

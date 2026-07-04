@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.sufiyan.chatmeadmin" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>ChatMe Control</name>
+    <description>Private network governance console. Owner-only.</description>
+    <author email="stom25383@example.com" href="">Sufiyan</author>
+
+    <content src="index.html" />
+    <access origin="*" />
+    <allow-navigation href="*" />
+
+    <preference name="Orientation" value="portrait" />
+    <preference name="BackgroundColor" value="#000000" />
+
+    <platform name="android">
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.INTERNET" />
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+        </config-file>
+        <icon density="ldpi" src="www/assets/icons/icon-ldpi.png" />
+        <icon density="mdpi" src="www/assets/icons/icon-mdpi.png" />
+        <icon density="hdpi" src="www/assets/icons/icon-hdpi.png" />
+        <icon density="xhdpi" src="www/assets/icons/icon-xhdpi.png" />
+        <icon density="xxhdpi" src="www/assets/icons/icon-xxhdpi.png" />
+        <icon density="xxxhdpi" src="www/assets/icons/icon-xxxhdpi.png" />
+    </platform>
+
+    <plugin name="cordova-plugin-device" spec="^2.1.0" />
+    <plugin name="cordova-plugin-statusbar" spec="^3.0.0" />
+</widget>
