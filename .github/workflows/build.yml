@@ -34,6 +34,12 @@ jobs:
           cordova plugin add cordova-plugin-device
           cordova plugin add cordova-plugin-statusbar
 
+      - name: Install cordova-res
+        run: npm install -g cordova-res
+
+      - name: Generate app icons from resources/icon.png
+        run: cordova-res android --type icon --skip-config --copy
+
       - name: Build APK
         run: cordova build android
 

@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com https://www.gstatic.com 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content: https:; connect-src *;">
     <title>ChatMe Control</title>
     <link rel="stylesheet" href="css/admin-theme.css">
 </head>
 <body>
 
-    <!-- SCREEN: PIN LOCK -->
     <section id="screen-pin" class="admin-screen active">
         <div class="pin-wrap">
             <div class="pin-title" id="pin-title">Enter Security PIN</div>
@@ -18,7 +18,6 @@
         </div>
     </section>
 
-    <!-- SCREEN: DASHBOARD -->
     <section id="screen-dashboard" class="admin-screen">
         <header class="admin-header">
             <div class="admin-title">ChatMe Control</div>
@@ -36,6 +35,8 @@
     </section>
 
     <script src="cordova.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
     <script src="js/firebase-config.js"></script>
     <script src="js/device-id.js"></script>
     <script src="js/pin-lock.js"></script>
