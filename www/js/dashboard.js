@@ -1,7 +1,8 @@
 /* ============================================================
    DASHBOARD.JS
    Renders the governance list view: Display Name + Pairing ID
-   only. Injects Kick buttons only when Read-Only mode is OFF.
+   only. Injects Kick + Blacklist Device buttons only when
+   Read-Only mode is OFF.
    ============================================================ */
 
 const CmDashboard = (function () {
@@ -17,6 +18,10 @@ const CmDashboard = (function () {
         `;
 
         if (!CmGovernance.isReadOnly()) {
+            const actionsWrap = document.createElement("div");
+            actionsWrap.style.display = "flex";
+            actionsWrap.style.gap = "8px";
+
             const kickBtn = document.createElement("button");
             kickBtn.className = "admin-btn admin-btn-danger";
             kickBtn.textContent = "Kick";
@@ -26,7 +31,24 @@ const CmDashboard = (function () {
                 await CmGovernance.kickUser(pairingId, account.hardwareHash);
                 card.remove();
             });
-            card.appendChild(kickBtn);
+
+            const blacklistBtn = document.createElement("button");
+            blacklistBtn.className = "admin-btn";
+            blacklistBtn.textContent = "Blacklist Device";
+            blacklistBtn.addEventListener("click", async () => {
+                if (!account.hardwareHash) {
+                    alert("No hardware signature on record for this account.");
+                    return;
+                }
+                const confirmed = confirm(`Permanently block ${account.displayName}'s device from ever creating a new account? This cannot be undone.`);
+                if (!confirmed) return;
+                await CmGovernance.blacklistHardware(account.hardwareHash);
+                alert("Device blacklisted.");
+            });
+
+            actionsWrap.appendChild(blacklistBtn);
+            actionsWrap.appendChild(kickBtn);
+            card.appendChild(actionsWrap);
         }
 
         return card;
